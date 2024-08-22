@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+void Populate(int* ,int);
+void Odd(int* , int*, int, int);
+void Even(int* , int*, int, int);
+
+int main(){
+
+    int Evenarr[100];
+    int Evencount = 0;
+    int Oddarr[100];
+    int Oddcount = 0;
+    int size;
+
+    printf("Enter the counts of the array: ");
+    scanf("%d", &size);
+
+    int arr[size];
+
+    Populate(arr, size);
+    Odd(arr, Evenarr, size, Oddcount);
+    Even(arr, Oddarr, size, Evencount);
+
+    return 0;
+}
+
+void Populate(int* arr, int size){
+
+    for(int i = 0; i < size; i++){
+        printf("Array [%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+}
+
+void Odd(int* arr, int* Odd, int size, int count){
+
+    int j = 0;
+    for(int i = 0; i < size; i++){
+        if(arr[i] % 2 == 0){
+            Odd[j] = arr[i];
+            j++;
+            count++;
+        }
+    }
+
+    for(int i = 0; i < count; i++){
+        printf("\nOdd Num: %d", Odd[i]);
+    }
+
+    printf("\nOdd Count: %d", count);
+}
+
+
+void Even(int* arr, int* Even, int size, int count){
+
+    int j = 0;
+    for(int i = 0; i < size; i++){
+        if(arr[i] % 2 != 0){
+            Even[j] = arr[i];
+            j++;
+            count++;
+        }
+    }   
+
+    printf("\n");
+
+    for(int i = 0; i < count; i++){
+        printf("\nEven Num: %d", Even[i]);
+    }
+
+    printf("\nEven Count: %d", count);
+}
